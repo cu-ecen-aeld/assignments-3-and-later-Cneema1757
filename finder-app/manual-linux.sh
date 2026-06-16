@@ -57,7 +57,7 @@ mkdir -p bin dev etc home lib lib64 proc sbin sys tmp usr var
 mkdir -p usr/bin usr/sbin usr/lib
 mkdir -p var/log
 
-cd "$OUTDIR"
+cd "${OUTDIR}"
 if [ ! -d "${OUTDIR}/busybox" ]
 then
     git clone git://busybox.net/busybox.git
@@ -89,9 +89,7 @@ cd "${OUTDIR}/rootfs"
 sudo mknod -m 666 dev/null c 5 1
 sudo mknod -m 600 dev/console c 1 3
 # TODO: Clean and build the writer utility
-FIND_APP_DIR="$(find /home -type d -name finder-app)"
-cd ${FIND_APP_DIR}
-echo ${FIND_APP_DIR}
+cd ${FINDER_APP_DIR}
 make clean
 make CROSS_COMPILE=aarch64-none-linux-gnu-
 mv writer ${OUTDIR}/rootfs/home
