@@ -91,6 +91,7 @@ sudo mknod -m 600 dev/console c 1 3
 # TODO: Clean and build the writer utility
 FIND_APP_DIR="$(find /home -type d -name finder-app)"
 cd ${FIND_APP_DIR}
+echo ${FIND_APP_DIR}
 make clean
 make CROSS_COMPILE=aarch64-none-linux-gnu-
 mv writer ${OUTDIR}/rootfs/home
